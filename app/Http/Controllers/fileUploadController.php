@@ -65,7 +65,7 @@ class FileUploadController extends Controller
 
             if ($imageResult['name'] != "" && $imageResult['error_msg'] == "") {
                 $success_msg_code = '200';
-                $success_message = 'FileUploaded Successfully with .'.$fileExtension.' extension. Using guessExtension() method';
+                $success_message = 'File Uploaded Successfully.';
                 return redirect()->back()->with('success', $success_message);
             }
             else{

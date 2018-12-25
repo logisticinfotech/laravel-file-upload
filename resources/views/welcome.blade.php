@@ -30,6 +30,10 @@
             .position-ref {
                 position: relative;
             }
+            .justify-content-center{
+                margin:0 auto;
+                text-align: center;
+            }
             .custom-upload-file {
                 border: 2px solid #4d6df5;
                 border-radius: 5px;
@@ -42,7 +46,6 @@
                 border-radius: 5px;
             }
             .file-button-section {
-                text-align: center;
                 padding: 10px;
                 margin: 20px 10px -10px 10px;
             }
@@ -54,10 +57,8 @@
                 background: #4d6df5;
                 border-radius: 6px;
             }
-            .custom-file-msg {
-                margin-top: 30px;
-                margin-bottom: -30px;
-                max-width: 260px;
+            .message-section{
+                margin: 10px;
             }
             .custom-file-error-msg {
                 color: #ff0000;
@@ -73,7 +74,7 @@
 
         <div class="flex-center position-ref full-height">
             <div class="container custom-upload-file">
-                <h3>Laravel File Upload extension Blank Problem Solution</h3>
+                <h3>Laravel File Upload Extension Blank Problem Solution</h3>
                 <div class="row justify-content-center">
                     <h2>Upload your file here</h2>
                     <div class="col-md-12">
@@ -91,14 +92,14 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 custom-file-msg">
-                        @if(\Session::has('error'))
-                            <label class="custom-file-error-msg">{!! \Session::get('error') !!}</label>
-                        @endif
-                        @if(\Session::has('success'))
-                            <label class="custom-file-success-msg">{!! \Session::get('success') !!}</label>
-                        @endif
+                        <div class="message-section">
+                            @if(\Session::has('error'))
+                                <label class="custom-file-error-msg">{!! \Session::get('error') !!}</label>
+                            @endif
+                            @if(\Session::has('success'))
+                                <label class="custom-file-success-msg">{!! \Session::get('success') !!}</label>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
