@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>Laravel - File Upload Extension Problem</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
@@ -19,47 +19,16 @@
                 height: 100vh;
                 margin: 0;
             }
-
             .full-height {
                 height: 100vh;
             }
-
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
             }
-
             .position-ref {
                 position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
             }
             .custom-upload-file {
                 border: 2px solid #4d6df5;
@@ -85,42 +54,34 @@
                 background: #4d6df5;
                 border-radius: 6px;
             }
+            .custom-file-msg {
+                margin-top: 30px;
+                margin-bottom: -30px;
+                max-width: 260px;
+            }
+            .custom-file-error-msg {
+                color: #ff0000;
+                font-weight: 600;
+            }
+            .custom-file-success-msg {
+                color: #2fc712;
+                font-weight: 600;
+            }
         </style>
     </head>
     <body>
+
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            {{-- <div class="content">
-                <h2>Upload your file here</h2>
-                <form class="form-horizontal" name="file_upload_form" method="POST" action="{{ url('file-upload') }}" enctype="multipart/form-data">
-                    @csrf
-                    <input class="form-control" type="file" name="file" id="file" required>
-                    <button class="btn btn-default" type="submit">Upload</button>
-                </form>
-            </div> --}}
             <div class="container custom-upload-file">
+                <h3>Laravel File Upload extension Blank Problem Solution</h3>
                 <div class="row justify-content-center">
-                        <h2>Upload your file here</h2>
+                    <h2>Upload your file here</h2>
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header"></div>
                             <div class="card-body">
                                 <form class="form-horizontal" name="file_upload_form" method="POST" action="{{ url('file-upload') }}" enctype="multipart/form-data">
-                                @csrf
-
+                                    @csrf
                                     <div class="form-group row">
                                         <input class="form-control file-input-control" type="file" name="file" id="file" required>
                                     </div>
@@ -131,17 +92,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3 custom-file-msg">
+                        @if(\Session::has('error'))
+                            <label class="custom-file-error-msg">{!! \Session::get('error') !!}</label>
+                        @endif
+                        @if(\Session::has('success'))
+                            <label class="custom-file-success-msg">{!! \Session::get('success') !!}</label>
+                        @endif
+                    </div>
                 </div>
             </div>
 
         </div>
-        <script type="text/javascript">
-            @if(\Session::has('error'))
-                alert('{!! \Session::get('error') !!}');
-            @endif
-            @if(\Session::has('success'))
-                alert('{!! \Session::get('success') !!}');
-            @endif
-        </script>
     </body>
 </html>
