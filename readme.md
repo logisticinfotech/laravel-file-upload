@@ -6,3 +6,5 @@ It is extracted from the original file name that was uploaded. Then it should no
 We should use guessExtension() method for resolution.
 
 The guessExtension() method returns the extension based on the mime type.
+
+You can find our blog from [this link](https://www.logisticinfotech.com/blog/laravel-upload-file-issue-getclientoriginalextension)
